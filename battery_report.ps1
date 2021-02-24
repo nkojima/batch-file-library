@@ -26,3 +26,6 @@ Remove-Item -Path $TEMP_FILE
 Write-Host "このPCのバッテリーの最大容量は$attenuation_rate％減少しています。"
 Write-Host "設計時の容量（DESIGN CAPACITY）：$design_capacity"
 Write-Host "満充電時の容量（FULL CHARGE CAPACITY）：$full_charge_capacity"
+
+# 処理結果が流れてしまわないように、Pauseを実行する。
+cmd /c Pause | Out-Null
