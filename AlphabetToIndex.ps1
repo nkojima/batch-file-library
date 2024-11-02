@@ -13,3 +13,22 @@ function ToIndex {
     
     return [Array]::IndexOf($alphabets, $alphabet.ToLower())
 }
+
+# アルファベットから成る文字列を、インデックスの配列として返す。
+# アルファベット以外の文字については、インデックスを-1として返す。
+function ToIndexArary{
+    param([string]$text)
+
+    $chars = $text.ToCharArray()
+    $result = @()
+
+    foreach ($char in $chars) {
+        try {
+            $result += ToIndex([string]$char)
+        } catch {
+            $result += -1
+        }
+    }
+    
+    return $result
+}
